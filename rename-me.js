@@ -5,10 +5,39 @@ x-COM: Iron Man*/
 alert("JavaScript works!");
 
 var totalShotsFired = 0;
-var rangerSquad = new Array();
-var alienSquad = new Array();
 
-/*var approach = function()
+
+
+var loadRangers = function(json) // returns array of squad members
+{
+	var rangerSquad = new Array();
+	for(var i = 0; i < json.jaxRangers.length; i++)
+	{
+		rangerSquad[i] = json.jaxRangers[i];
+	}
+	return rangerSquad;
+}
+var loadAliens = function(json) // returns array of aliens
+{
+	var alienSquad = new Array();
+	for(var i = 0; i < json.aliens.length; i++)
+	{
+		alienSquad[i] = json.aliens[i];
+	}
+}
+
+var approach = function() // while loop, squad approaching the UFO
+{
+	var i = 0;
+	while(i < squad.length)
+	{
+		console.log(rangerSquad[i].name + "approaches the downed UFO, but doesn't detect any motion.");
+		i++;
+	}
+
+}
+
+var briefing = function(squad)
 {
 
 }
@@ -38,14 +67,6 @@ var kill = function(name)
 
 
 
-loadSquad(json,"jaxRangers", rangerSquad);
-//alienSquad = loadSquad("aliens", alienSquad);
 
-*/
-
-var handleData = function(json)
-{
-	console.log(json);
-}
-
-handleData(json);
+var squad = loadRangers(json);
+var aliens = loadAliens(json);
