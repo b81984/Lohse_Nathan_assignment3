@@ -5,19 +5,19 @@ var json =
 		 {
 			"name": "Jax",
 			"aim": 85,
-			"defense": 40,
+			"defense": 80,
 			"class": "Heavy"
 		},
 		{
 			"name": "Geralt",
 			"aim": 70,
-			"defense": 35,
+			"defense": 75,
 			"class": "Assault"
 		},
 		{
 			"name": "Harold",
 			"aim": 94,
-			"defense": 30,
+			"defense": 70,
 			"class": "Sniper"
 		},
 		{
@@ -39,26 +39,26 @@ var json =
 		{
 			"name": "Thin Man",
 			"aim": 75,
-			"defense": 20,
+			"defense": 75,
 			"class": "Thin Man"
 		},
 
 		{
 			"name": "Sectoid",
 			"aim": 70,
-			"defense": 25,
+			"defense": 70,
 			"class": "Sectoid"
 		},
 		{
 			"name": "Muton",
 			"aim": 85,
-			"defense": 35,
+			"defense": 80,
 			"class": "Muton"
 		},
 		{
 			"name": "Outsider",
 			"aim": 80,
-			"defense": 25,
+			"defense": 60,
 			"class": "Outsider"
 		}
 	]

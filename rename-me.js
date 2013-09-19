@@ -27,6 +27,36 @@ var loadAliens = function(json) // returns array of aliens
 	{
 		alienSquad[i] = json.aliens[i];
 	}
+	return alienSquad;
+}
+
+var odds = function(squad, aliens)
+{
+	var kill = false;
+	for(var i = 0; i < squad.length; i++)
+	{
+		for(var x = 0; x < aliens.length; x++ )
+		{
+			if(squad[i].aim > aliens[x].defense)
+			{
+				console.log(squad[i].name + " can probably kill a " + aliens[x].name);
+				kill = true;
+			}
+			else
+			{
+				console.log(squad[i].name + " probably can't hit a " + aliens[x].name);
+				kill = false;
+			}
+			if(aliens[x].aim > squad[i].defense)
+			{
+				console.log(squad[i].name + " will probably die if attacked by a " + aliens[x].name);
+			}
+			else
+			{
+				console.log(squad[i].name + " can probably survive an attack by a " + aliens[x].name);
+			}
+		}
+	}
 }
 
 var approach = function() // while loop, squad approaching the UFO
@@ -41,7 +71,7 @@ var approach = function() // while loop, squad approaching the UFO
 
 }
 
-var briefing = function(squad, briefed)
+var briefing = function(squad, briefed) 
 {
 	if(briefed != false)
 	{
@@ -91,21 +121,23 @@ var survivors = function(squad)
 	return survivorList;
 
 }
-var inside = function(name)
+var inside = function(name, alienNumber)
 {
 	console.log("Inside the ship, there's a new type of enemy; an Outsider!  Your troops try to stun it to bring it home alive!");
+	if(squad[1].aim > aliens[alienNumber].defense)
+	{
+		console.log(name + " hits the Outsider with a blast from his Arc Thrower.  The Outsider is coming home with us after all!");
+		return 1;
 
+	}
 }
-
-
-
-
-
 
 var squad = loadRangers(json);
 var aliens = loadAliens(json);
+console.log("testing "+aliens);
 briefed = confirm("Do you require briefing?");
 briefed = briefing(squad, briefed);
+odds(squad, aliens);
 approach();
 squad = combat(squad);
 while(cont != true)
@@ -117,5 +149,7 @@ while(cont != true)
 		console.log(surviving);
 	}
 }
+ var captured = inside(squad[1].name, 3);
+
 
 
