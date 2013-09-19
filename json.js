@@ -17,7 +17,7 @@ var json =
 		{
 			"name": "Harold",
 			"aim": 94,
-			"defense": 20,
+			"defense": 30,
 			"class": "Sniper"
 		},
 		{
@@ -63,4 +63,3 @@ var json =
 		}
 	]
 }; 
-alert("hello!");
