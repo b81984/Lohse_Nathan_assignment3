@@ -1,9 +1,6 @@
 /*Nathan Lohse
 9/19/2013
 x-COM: Iron Man*/
-
-alert("JavaScript works!");
-
 var totalShotsFired = 0;
 var briefed = false;
 var cont = false;
@@ -30,7 +27,7 @@ var loadAliens = function(json) // returns array of aliens
 	return alienSquad;
 }
 
-var odds = function(squad, aliens)
+var odds = function(squad, aliens) // nested loop
 {
 	var kill = false;
 	for(var i = 0; i < squad.length; i++)
@@ -71,7 +68,7 @@ var approach = function() // while loop, squad approaching the UFO
 
 }
 
-var briefing = function(squad, briefed) 
+var briefing = function(squad, briefed) //returns boolean
 {
 	if(briefed != false)
 	{
@@ -87,7 +84,7 @@ var briefing = function(squad, briefed)
 	return false;
 
 }
-var combat = function(squad)
+var combat = function(squad) //nested conditionals
 {
 
 	console.log("Your squad is ambushed by mutons!  Your soldiers fight for their lives!");
@@ -110,7 +107,7 @@ var combat = function(squad)
 	return squad;
 
 }
-var survivors = function(squad)
+var survivors = function(squad) //returns string
 {
 	var survivorList = "";
 	for(var i = 0; i < squad.length; i++)
@@ -121,7 +118,7 @@ var survivors = function(squad)
 	return survivorList;
 
 }
-var inside = function(name, alienNumber)
+var inside = function(name, alienNumber) // returns number
 {
 	console.log("Inside the ship, there's a new type of enemy; an Outsider!  Your troops try to stun it to bring it home alive!");
 	if(squad[1].aim > aliens[alienNumber].defense)
@@ -134,7 +131,6 @@ var inside = function(name, alienNumber)
 
 var squad = loadRangers(json);
 var aliens = loadAliens(json);
-console.log("testing "+aliens);
 briefed = confirm("Do you require briefing?");
 briefed = briefing(squad, briefed);
 odds(squad, aliens);
@@ -150,6 +146,7 @@ while(cont != true)
 	}
 }
  var captured = inside(squad[1].name, 3);
+ console.log("Mission complete, with " + captured + " prisoner in hand!");
 
 
 
